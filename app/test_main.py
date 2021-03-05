@@ -136,9 +136,28 @@ async def hello():
     return {'강혜민 바보'}
 
 
+
+
+
+
+main_html = """
+<head>
+</head>
+<body>
+
+
+    <h1> 큰 글씨로 말해보아요</h1>
+</body>
+
+
+"""
+
+
+
 @app.get(path="/")
 async def hello():
-    return 'hello world'
+    # return 'hello world'
+    return HTMLResponse(main_html)
 
 @app.get(path="/hello/query")
 async def hello_with_querystring(name:str) :
@@ -147,3 +166,4 @@ async def hello_with_querystring(name:str) :
 @app.get(path="/hello/post")
 async def hello_post(request : Item) :
     return f'hello with name, your name is {name}, age {age}'
+
